@@ -1,0 +1,10 @@
+{
+    "name": "storm",
+    "description": "Monitor like a stormy alarm",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "mysql": "*",
+        "express": "*"
+    }
+}

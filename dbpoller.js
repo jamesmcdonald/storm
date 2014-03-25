@@ -1,30 +1,7 @@
 var mysql = require('mysql');
 var config = require('./config');
 
-sets = {
-    zabbixdata: [
-        "Created_tmp_disk_tables",
-        "Innodb_buffer_pool_wait_free",
-        "Key_reads",
-        "Select_full_join",
-        "Slow_queries",
-        "Threads_connected",
-        "Threads_running",
-        "max_connections",
-        "Innodb_os_log_written",
-        "Questions_pr_second",
-        "Handler_read_first",
-        "Open_tables",
-        "Questions",
-        "accountsWithBroadHostSpecifier",
-        "rootAccounts",
-        "accountsWithNoPassword",
-        "rootRemoteLoginEnabled",
-        "rootEmptyPassword",
-        "global_Super_priv_count",
-        "global_Grant_priv_count"
-    ]
-};
+sets = config.sets;
 
 // Get inspection data from a MySQL connection and add to data[hostname]
 function getmysqlstatus(conn, data) {

@@ -1,19 +1,18 @@
 var express = require('express');
 var dbpoller = require('./dbpoller');
+var config = require('./config');
 
 var stuff = {
     db: {}
 };
-var dbservers = [
-    "localhost",
-    "derpy.shee.sh",
-];
 
-for (var i=0;i<dbservers.length; i++) {
-    conn = dbpoller.connect(dbservers[i]);
+/* Start database monitors */
+for (var i=0;i<config.dbservers.length; i++) {
+    conn = dbpoller.connect(config.dbservers[i]);
     dbpoller.getmysqlstatus(conn, stuff.db, 5000);
 }
 
+/* Set up API server */
 app = express();
 app.get('/', function(req, res) {
     res.setHeader("Content-type", "text/json");
@@ -57,4 +56,4 @@ app.get('/:subsys/:hostname/:sensor', function(req, res) {
     res.send(sv);
 });
 
-app.listen(2001);
+app.listen(config.port);

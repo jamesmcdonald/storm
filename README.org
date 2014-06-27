@@ -1,9 +1,9 @@
 storm
 
 * Installation
-Install node
-Run 'npm install'
-Copy 'config-sample.js' to 'config.js' and customise
+- Install node
+- Run 'npm install'
+- Copy 'config-sample.js' to 'config.js' and customise
 * Running
-Run 'node storm.js'
-Can also run under forever or from supervisor quite happily
+- Run 'node storm.js'
+- Can also run under forever or from supervisor quite happily

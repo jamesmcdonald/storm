@@ -35,6 +35,9 @@ function getmysqlstatus(conn, data) {
                 d['Questions_pr_second'] =
                     (d['Questions'] - data[hostname + '_prev']['Questions']) / 5;
             }
+	    if ('Threads_running' in d && d['Threads_running'] > config.maxthreads) {
+		logpl(conn, "somefile");
+	    }
 
             // Add the sets
             for (var set in sets) {
@@ -48,6 +51,12 @@ function getmysqlstatus(conn, data) {
         });
     });
 }
+
+function logpl(conn, filename) {
+    conn.query("show full processlist", function(err, rows, fields) {
+	console.log(rows);
+    });
+};
 
 function connect(dbserver) {
     var conn = mysql.createPool({host:dbserver, user:config.dbuser, password:config.dbpass});

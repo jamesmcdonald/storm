@@ -40,4 +40,10 @@ config.sets = {
     ]
 };
 
+/* Log processlist if more than this number of threads are running */
+config.maxthreads = 100;
+
+/* Throttle processlist logging to only log again after this many seconds */
+config.logthrottle = 60;
+
 module.exports = config;

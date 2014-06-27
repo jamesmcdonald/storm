@@ -1,4 +1,4 @@
-storm
+#+TITLE: storm
 
 * Installation
 - Install node
